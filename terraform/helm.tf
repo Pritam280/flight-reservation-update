@@ -21,6 +21,7 @@ provider "kubernetes" {
 
 }
 
+
 resource "kubernetes_service_account" "alb_controller" {
 
   metadata {
