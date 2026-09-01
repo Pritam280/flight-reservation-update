@@ -5,9 +5,9 @@ data "aws_route53_zone" "main" {
 
 }
 
-data "aws_lb" "alb" {
-  name = "k8s-flightre-flightre-0e178945d1"
-}
+#data "aws_lb" "alb" {
+#  name = "k8s-flightre-flightre-0e178945d1"
+#}
 
 resource "aws_route53_record" "frontend" {
 
@@ -24,7 +24,7 @@ resource "aws_route53_record" "frontend" {
   }
 }
 
-
+/*
 resource "aws_route53_record" "backend" {
     zone_id = data.aws_route53_zone.main.zone_id
     name = "api.cloudfi.shop"
@@ -36,3 +36,4 @@ resource "aws_route53_record" "backend" {
         evaluate_target_health = true
     }
 }
+*/
