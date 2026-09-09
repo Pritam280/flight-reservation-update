@@ -15,8 +15,7 @@ spec:
   ingressClassName: alb
 
   rules:
-    - host: api.cloudfi.shop
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix

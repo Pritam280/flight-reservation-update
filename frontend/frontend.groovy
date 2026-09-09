@@ -3,8 +3,8 @@ pipeline {
     environment {
 
         AWS_REGION = "us-east-1"
-        S3_BUCKET = "flight-frontend"
-        DISTRIBUTION_ID = "E3QZ0X1Y2Z3A4B"
+        S3_BUCKET = "flight-2-bucket-014445"
+        DISTRIBUTION_ID = "E2IDD9ZLCLRZUC"
 
     }
 

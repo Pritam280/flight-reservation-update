@@ -100,15 +100,14 @@ output "cloudfront_distribution_id" {
 ##########################################
 
 
-output "frontend_url" {
-  value = "https://${aws_cloudfront_distribution.frontend.domain_name}"
-}
+#output "frontend_url" {
+#  value = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+#}
 
 
-output "backend_url" {
-  description = "backend URL"
-  value       = "https://api.cloudfi.shop"
-}
+#output "backend_url" {
+#  value = "https://${aws_route53_record.backend.name}"
+#}
 
 
 

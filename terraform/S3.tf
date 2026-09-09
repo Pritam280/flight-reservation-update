@@ -70,7 +70,7 @@ resource "aws_s3_bucket_versioning" "flight_bucket_versioning" {
 
 resource "aws_s3_bucket" "flight_bucket" {
 
-  bucket = "flight-2-bucket-003555"
+  bucket = "flight-2-bucket-014445"
 
   tags = {
     Name        = "flight-frontend-bucket"
