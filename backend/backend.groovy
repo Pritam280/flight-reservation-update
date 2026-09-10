@@ -1,8 +1,8 @@
 pipeline {
     agent any
 
-    # define environments vairables
-    envirnments {
+    // define environments vairables
+    environments {
         AWS_REGION = "us-east-1"
         AWS_ACCOUNT_ID = "882040517501"
         ECR_REPOSITORY = "flight-backend-app"
@@ -67,9 +67,9 @@ pipeline {
                     sh """
                     aws eks update-kubeconfig --region ${AWS_REGION} --name ${CLUSTER_NAME}
 
-                    kubectl set image deployment/${Deployment} \
+                    kubectl set image deployment/${DEPLOYMENT} \
                     ${CONTAINER}=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG} \
-                    -N ${NAMESPACE}
+                    -n ${NAMESPACE}
                     """
                 }
             }
