@@ -1,14 +1,15 @@
+
 pipeline {
     agent any
-    environment {
 
+    environment {
         AWS_REGION = "us-east-1"
         S3_BUCKET = "flight-2-bucket-014445"
-        DISTRIBUTION_ID = "E2IDD9ZLCLRZUC"
-
+        DISTRIBUTION_ID = "ETJ0BDHOHUPPH"
     }
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -23,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('Build'){
+        stage('Build Frontend') {
             steps {
                 dir('frontend') {
                     sh 'npm run build'
@@ -34,18 +35,30 @@ pipeline {
         stage('Deploy to S3') {
             steps {
                 sh """
-                aws s3 sync frontend/build/ s3://${S3_BUCKET} --delete
+                    aws s3 sync frontend/dist/ s3://${S3_BUCKET} --delete
                 """
             }
         }
 
-        stage('Invalidate Cloudfront chache') {
+        stage('Invalidate CloudFront Cache') {
             steps {
                 sh """
-                aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*"
-                
+                    aws cloudfront create-invalidation \
+                    --distribution-id ${DISTRIBUTION_ID} \
+                    --paths "/*"
                 """
             }
         }
     }
+
+    post {
+        success {
+            echo "Frontend deployment successful"
+        }
+
+        failure {
+            echo "Frontend deployment failed"
+        }
+    }
 }
+
