@@ -94,12 +94,20 @@ sudo apt-get install -y jenkins
 # Jenkins Docker Permissions
 ###################################################
 
-usermod -aG docker jenkins
-usermod -aG docker ubuntu
+sudo usermod -aG docker jenkins
+sudo usermod -aG docker ubuntu
 
 systemctl enable jenkins
 systemctl start jenkins
 
+
+##################################
+# Install Maven
+##############################
+
+sudo apt-get update
+
+sudo apt-get install -y maven
 
 
 ###################################################

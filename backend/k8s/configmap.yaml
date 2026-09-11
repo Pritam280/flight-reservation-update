@@ -4,7 +4,7 @@ metadata:
   name: flight-config
   namespace: flight-reservation
 data:
-  SPRING_DATASOURCE_URL: jdbc:mysql://terraform-2026091004065720690000000d.co38muo8u2de.us-east-1.rds.amazonaws.com:3306/flightdb?createDatabaseIfNotExist=true
-  FRONTEND_URL: https://d1wjnzecsr9wx9.cloudfront.net
+  SPRING_DATASOURCE_URL: jdbc:mysql://terraform-2026091104502867620000000d.co38muo8u2de.us-east-1.rds.amazonaws.com:3306/flightdb?createDatabaseIfNotExist=true
+  FRONTEND_URL: https://d3sb7vb80zqgyq.cloudfront.net
 
   
